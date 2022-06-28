@@ -9,7 +9,9 @@ import UIKit
 
 class TableCell: UITableViewCell {
     
+    //MARK: - Public properties
     let cellIdentifier = "tableCell"
+    
     var label: UILabel = {
         let label = UILabel()
         label.text = "label"

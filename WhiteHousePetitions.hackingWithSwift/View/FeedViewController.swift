@@ -10,6 +10,10 @@ import UIKit
 class FeedViewController: UIViewController {
     
     //MARK: - Private properties
+    private let cell = TableCell()
+    private var petitions = [Petition]()
+    private let urlString = "https://www.hackingwithswift.com/samples/petitions-1.json"
+    
     private var tableView: UITableView = {
         let table = UITableView()
         table.backgroundColor = .clear
@@ -24,33 +28,49 @@ class FeedViewController: UIViewController {
         setupViews()
         setDelegates()
         addConstraints()
+        
+        guard let url = URL(string: urlString) else { return }
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            guard let data = try? Data(contentsOf: url) else { return }
+            self.parse(json: data)
+        }
+        
+    }
+    
+    private func parse(json: Data) {
+        let decoder = JSONDecoder()
+        
+        guard let jsonPetitions = try? decoder.decode(Petitions.self, from: json) else { return }
+        petitions = jsonPetitions.results
+        tableView.reloadData()
     }
     
     //MARK: - SetupViews
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(tableView)
-        tableView.register(TableCell.self, forCellReuseIdentifier: "tableCell")
-        
+        tableView.register(TableCell.self, forCellReuseIdentifier: cell.cellIdentifier)
     }
     
     //MARK: - Set Delegates
     private func setDelegates() {
         tableView.dataSource = self
         tableView.delegate = self
-        
     }
 
 }
 
 extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return petitions.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! TableCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cell.cellIdentifier, for: indexPath) as! TableCell
+        cell.label.text = petitions[indexPath.row].title
+        cell.detail.text = petitions[indexPath.row].body
         return cell
     }
 }
