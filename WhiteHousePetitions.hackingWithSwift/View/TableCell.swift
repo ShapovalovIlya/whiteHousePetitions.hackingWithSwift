@@ -15,7 +15,7 @@ class TableCell: UITableViewCell {
     var label: UILabel = {
         let label = UILabel()
         label.text = "label"
-        label.font = .boldSystemFont(ofSize: 18)
+        label.font = .boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,7 +50,7 @@ class TableCell: UITableViewCell {
     private func setConstraints() {
         // Set label constraints
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor),
+            label.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
         ])
@@ -59,7 +59,7 @@ class TableCell: UITableViewCell {
             detail.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 5),
             detail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             detail.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            detail.bottomAnchor.constraint(equalTo: bottomAnchor)
+            detail.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5)
         ])
     }
     

@@ -62,6 +62,7 @@ class FeedViewController: UIViewController {
 
 }
 
+//MARK: - UITableViewDataSource
 extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return petitions.count
@@ -75,8 +76,14 @@ extension FeedViewController: UITableViewDataSource {
     }
 }
 
+//MARK: - UITableViewDelegate
 extension FeedViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let destinationVC = DetailViewController()
+        destinationVC.detailItem = petitions[indexPath.row]
+        navigationController?.pushViewController(destinationVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 //MARK: - Add constraints
