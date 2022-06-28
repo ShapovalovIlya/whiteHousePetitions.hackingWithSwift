@@ -17,7 +17,6 @@
 		86AF145D286B500600F928F5 /* TableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF145C286B500600F928F5 /* TableCell.swift */; };
 		86AF1461286B84BD00F928F5 /* Petitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF1460286B84BD00F928F5 /* Petitions.swift */; };
 		86AF1463286B84FA00F928F5 /* Petition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF1462286B84FA00F928F5 /* Petition.swift */; };
-		86AF1465286B896F00F928F5 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86AF1464286B896F00F928F5 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		86AF145C286B500600F928F5 /* TableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCell.swift; sourceTree = "<group>"; };
 		86AF1460286B84BD00F928F5 /* Petitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petitions.swift; sourceTree = "<group>"; };
 		86AF1462286B84FA00F928F5 /* Petition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Petition.swift; sourceTree = "<group>"; };
-		86AF1464286B896F00F928F5 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +67,6 @@
 			children = (
 				862A0D5C286A2BAF00BC337D /* AppDelegate.swift */,
 				862A0D5E286A2BAF00BC337D /* SceneDelegate.swift */,
-				86AF1464286B896F00F928F5 /* Networking.swift */,
 				86AF145F286B84A100F928F5 /* Model */,
 				86AF145E286B55D900F928F5 /* View */,
 				862A0D65286A2BB300BC337D /* Assets.xcassets */,
@@ -172,7 +169,6 @@
 				86AF1463286B84FA00F928F5 /* Petition.swift in Sources */,
 				86AF145D286B500600F928F5 /* TableCell.swift in Sources */,
 				86AF1461286B84BD00F928F5 /* Petitions.swift in Sources */,
-				86AF1465286B896F00F928F5 /* Networking.swift in Sources */,
 				862A0D61286A2BAF00BC337D /* FeedViewController.swift in Sources */,
 				862A0D5D286A2BAF00BC337D /* AppDelegate.swift in Sources */,
 				862A0D5F286A2BAF00BC337D /* SceneDelegate.swift in Sources */,
