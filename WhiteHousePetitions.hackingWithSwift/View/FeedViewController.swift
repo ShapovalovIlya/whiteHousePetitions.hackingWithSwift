@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FeedViewController: UIViewController {
     
     //MARK: - Private properties
     private var tableView: UITableView = {
         let table = UITableView()
-        table.backgroundColor = .red
+        table.backgroundColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         return table
     }()
@@ -30,7 +30,7 @@ class ViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .white
         view.addSubview(tableView)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TableCell.self, forCellReuseIdentifier: "tableCell")
         
     }
     
@@ -43,24 +43,24 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDataSource {
+extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "test"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! TableCell
+        
         return cell
     }
 }
 
-extension ViewController: UITableViewDelegate {
+extension FeedViewController: UITableViewDelegate {
     
 }
 
 //MARK: - Add constraints
-extension ViewController {
+extension FeedViewController {
         private func addConstraints() {
         // Add constraints for table view
         NSLayoutConstraint.activate([
