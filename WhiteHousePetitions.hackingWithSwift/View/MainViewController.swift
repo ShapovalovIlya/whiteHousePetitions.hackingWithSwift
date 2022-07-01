@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     
     //MARK: - Private properties
     private let cell = TableCell()
@@ -97,7 +97,7 @@ class ViewController: UIViewController {
 }
 
 //MARK: - Table View Data Source
-extension ViewController: UITableViewDataSource {
+extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if searchActive {
             return filtered.count
@@ -121,7 +121,7 @@ extension ViewController: UITableViewDataSource {
 }
 
 //MARK: - Table View Delegate
-extension ViewController: UITableViewDelegate {
+extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let destinationVC = WebViewController()
         destinationVC.detailItem = petitions[indexPath.row]
@@ -131,7 +131,7 @@ extension ViewController: UITableViewDelegate {
 }
 
 //MARK: - Search Bar Delegate
-extension ViewController: UISearchBarDelegate {
+extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filtered = petitions.filter{ $0.title.contains(searchText) }
         
@@ -148,7 +148,7 @@ extension ViewController: UISearchBarDelegate {
 }
 
 //MARK: - Add constraints
-extension ViewController {
+extension MainViewController {
     private func addConstraints() {
         // Add constraints for search bar
         NSLayoutConstraint.activate([

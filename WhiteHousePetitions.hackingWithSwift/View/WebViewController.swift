@@ -46,15 +46,22 @@ class WebViewController: UIViewController {
     
     private func setupHTML() {
         guard let detailItem = detailItem else { return }
+        print(detailItem.signatureCount)
+        print(detailItem.signaturesNeeded)
+        print(detailItem.url)
         
         let html = """
         <html>
         <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <style> body { font-size: 150%; } </style>
-        <title>\(detailItem.title)</title>
         </head>
-        <body>\(detailItem.body)</body>
+        <h3>\(detailItem.title)</h3>
+        <body>
+        <p>\(detailItem.body)</p>
+        <p>\(detailItem.signatureCount) signatures from \(detailItem.signaturesNeeded)</p>
+        <p>You can check petition <a href=\(detailItem.url)>here</a></p>
+        </body>
         </html>
         """
         

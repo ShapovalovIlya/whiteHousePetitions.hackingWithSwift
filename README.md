@@ -9,3 +9,4 @@ Goal to this project:
 - Data
 - Codable
 - WebKit
+- HTML

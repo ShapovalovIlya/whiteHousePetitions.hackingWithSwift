@@ -22,14 +22,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     //MARK: - Configurate Controllers
     private func createFeedViewController() -> UINavigationController {
-        let viewController = ViewController()
+        let viewController = MainViewController()
         viewController.title = "Petitions"
         viewController.tabBarItem = UITabBarItem(title: "Petitions", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
         return UINavigationController(rootViewController: viewController)
     }
     
     private func createFavoritelViewController() -> UINavigationController {
-        let viewController = ViewController()
+        let viewController = MainViewController()
         viewController.title = "Most favorite"
         viewController.tabBarItem = UITabBarItem(title: "Most favorite", image: UIImage(systemName: "doc.richtext"), tag: 1)
         return UINavigationController(rootViewController: viewController)
