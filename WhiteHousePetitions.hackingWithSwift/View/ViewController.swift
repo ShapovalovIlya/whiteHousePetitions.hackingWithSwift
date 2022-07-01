@@ -99,7 +99,11 @@ class ViewController: UIViewController {
 //MARK: - Table View Data Source
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return petitions.count
+        if searchActive {
+            return filtered.count
+        } else {
+            return petitions.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -129,8 +133,17 @@ extension ViewController: UITableViewDelegate {
 //MARK: - Search Bar Delegate
 extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filtered = petitions.
+        filtered = petitions.filter{ $0.title.contains(searchText) }
         
+        if filtered.count == 0 {
+            searchActive = false
+            DispatchQueue.main.async {
+                searchBar.resignFirstResponder()
+            }
+        } else {
+            searchActive = true
+        }
+        tableView.reloadData()
     }
 }
 
