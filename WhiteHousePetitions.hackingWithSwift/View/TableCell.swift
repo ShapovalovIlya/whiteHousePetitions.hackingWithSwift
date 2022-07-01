@@ -53,6 +53,7 @@ class TableCell: UITableViewCell {
             label.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            label.heightAnchor.constraint(equalToConstant: frame.height / 2)
         ])
         // Set detail constraints
         NSLayoutConstraint.activate([

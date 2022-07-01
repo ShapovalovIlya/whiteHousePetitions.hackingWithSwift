@@ -128,6 +128,10 @@ extension MainViewController: UITableViewDelegate {
         navigationController?.pushViewController(destinationVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        view.frame.height / 12
+    }
 }
 
 //MARK: - Search Bar Delegate
