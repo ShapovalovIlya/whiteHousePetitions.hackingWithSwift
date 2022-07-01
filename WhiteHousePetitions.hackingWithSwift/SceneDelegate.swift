@@ -22,24 +22,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     //MARK: - Configurate Controllers
     private func createFeedViewController() -> UINavigationController {
-        let feedViewController = FeedViewController()
-        feedViewController.title = "Petitions"
-        feedViewController.tabBarItem = UITabBarItem(title: "Petitions", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
-        return UINavigationController(rootViewController: feedViewController)
+        let viewController = ViewController()
+        viewController.title = "Petitions"
+        viewController.tabBarItem = UITabBarItem(title: "Petitions", image: UIImage(systemName: "list.bullet.rectangle"), tag: 0)
+        return UINavigationController(rootViewController: viewController)
     }
     
-    private func createDetailViewController() -> UINavigationController {
-        let detailViewController = DetailViewController()
-        detailViewController.title = "Detail"
-        detailViewController.tabBarItem = UITabBarItem(title: "Details", image: UIImage(systemName: "doc.richtext"), tag: 1)
-        return UINavigationController(rootViewController: detailViewController)
+    private func createFavoritelViewController() -> UINavigationController {
+        let viewController = ViewController()
+        viewController.title = "Most favorite"
+        viewController.tabBarItem = UITabBarItem(title: "Most favorite", image: UIImage(systemName: "doc.richtext"), tag: 1)
+        return UINavigationController(rootViewController: viewController)
     }
     
     private func createTabBarController() -> UITabBarController {
         let tabBarController = UITabBarController()
         UITabBar.appearance().backgroundColor = .lightGray
         UITabBar.appearance().barTintColor = .white
-        tabBarController.viewControllers = [createFeedViewController(), createDetailViewController()]
+        tabBarController.viewControllers = [createFeedViewController(), createFavoritelViewController()]
         return tabBarController
     }
     
